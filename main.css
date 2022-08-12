@@ -1,0 +1,36 @@
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background: url(./img/fondo.png);
+    background-size: cover;
+}
+
+div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    border: 5px outset rgb(237, 238, 243);
+    background-color: rgba(110, 24, 18, 0.829);
+    font-weight: bold;
+    padding: 10px;
+    
+}
+h2{
+    color: whitesmoke;
+}
+button{
+    background-color: rgb(206, 0, 0);
+    border: 1px dotted white;
+    color: azure;
+    width: 100px;
+    height: 50px;
+    
+}
+
+p{
+    color: rgb(226, 182, 62);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
