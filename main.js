@@ -64,16 +64,41 @@ function MenuEjercicios(nro_ejercicio){
             break;
 
         case 10:
-        
+            let nombre1= prompt("Ingrese nombre de la primera persona");
+            let edad1= prompt("Ingrese edad de la primera persona");
+            let nombre2= prompt("Ingrese nombre de la segunda persona");
+            let edad2= prompt("Ingrese edad de la segunda persona");
+            let nombre3= prompt("Ingrese nombre de la tercera persona");
+            let edad3= prompt("Ingrese edad de la tercera persona");
+            alert(ej10_MayorEdad(edad1,edad2,edad3,nombre1,nombre2,nombre3));
+            break;
+
         case 11:
-        
+            let antiguedad= parseFloat(prompt("Ingrese años de antiguedad"));
+            alert(ej11_calculaBono(antiguedad));
+            break;
+
         case 12:
-        
+            let salario_inicial = parseFloat(prompt("Ingrese salario inicial"));
+            let cant_años = parseFloat(prompt("Ingrese cantidad de años"));
+            alert(ej12_salarioProfesor(salario_inicial, cant_años));
+            break;
+
         case 13:
+            let cantAlumnos=parseFloat(prompt("Ingrese numero de alumnos"));
+            alert(ej13_AlumnosAprobados(cantAlumnos));
+            break;
 
         case 14:
+            let cantfocos=parseFloat(prompt("Ingrese numero de focos"));
+            alert(ej14_DevuelveFocos(cantfocos));
+            break;
 
         case 15:
+            let añonac=parseFloat(prompt("Ingrese año de nacimiento"));
+            alert(ej15_Votacion(añonac));
+            break;
+
         }
 
         
@@ -152,3 +177,159 @@ function MenuEjercicios(nro_ejercicio){
             return "La edad del trabajador es: " +edad + "años" ; 
         }
     }
+
+    function ej10_MayorEdad(edad1,edad2,edad3,nombre1,nombre2,nombre3){
+        let arreglo=[
+            {
+            primerNombre: nombre1,
+            primeraEdad: edad1,
+            },
+            {segundoNombre: nombre2,
+            segundaEdad: edad2,
+            },
+            {
+            tercerNombre: nombre3,
+            terceraEdad: edad3,
+            },
+            ]
+        console.table(arreglo); 
+
+        if(isNaN(edad1) || isNaN(edad2) || isNaN(edad3)){
+            return "Ingrese valores numéricos!!"
+        }else{
+            if(edad1>edad2){
+                if(edad1>edad3){
+                  return "Persona de mayor edad: " + arreglo[0].primerNombre + ", su edad es: "+ arreglo[0].primeraEdad;
+                }else
+                    {
+                    return "Persona de mayor edad: " + arreglo[2].tercerNombre + ", su edad es: "+ arreglo[2].terceraEdad;
+                    }
+                }       
+
+            else{
+                if(edad2>edad3){
+                    return "Persona de mayor edad: " + arreglo[1].segundoNombre + ", su edad es: "+ arreglo[1].segundaEdad;
+                  }else
+                      {
+                      return "Persona de mayor edad: " + arreglo[2].tercerNombre + ", su edad es: "+ arreglo[2].terceraEdad;
+                      }
+                  }
+
+        }}
+
+        
+        function ej11_calculaBono(antiguedad){
+            
+        if(isNaN(antiguedad)){
+            return "Ingresa valores correctos";
+        }else{
+            switch(antiguedad){
+            case 1:
+                return "El bono que le corresponde al trabajador es $100 ";
+                break; 
+
+            case 2:
+                return "El bono que le corresponde al trabajador es $200 ";
+                break;
+
+            case 3:
+                return "El bono que le corresponde al trabajador es $300 ";
+                break;
+
+            case 4:
+                return "El bono que le corresponde al trabajador es $400 ";
+                break;
+
+            case 5:
+                return "El bono que le corresponde al trabajador es $500 ";
+                break;
+            }}
+
+            if(antiguedad<=50){
+                return "El bono que le corresponde al trabajador es $1000 ";
+                }
+                else{
+                return "La cantidad de años máxima es 50";
+                }
+            }
+
+
+        function ej12_salarioProfesor(salario_inicial, cant_años){
+           
+            const sueldos=[];
+            let sueldo=salario_inicial;
+
+            if(isNaN(salario_inicial) || isNaN(cant_años)){
+                return "Ingrese valores numéricos!!"
+            }else{
+            for(i=0; i<cant_años; i++){
+                sueldo=sueldo+(sueldo*0.10);
+                sueldos[i]=sueldo;
+                }
+            return "El salario despues de " +cant_años +" años es: " +sueldo;   
+            }
+        }
+
+        function ej13_AlumnosAprobados(cantAlumnos){
+            let notas_totales=[];
+            let aprobados=0;
+            let desaprobados=0;
+            if(isNaN(cantAlumnos)){
+                return "Ingresa valores correctos";
+            }else{
+                for(i=0;i<cantAlumnos;i++){
+                    let nota= prompt("Ingrese nota del alumno " +(i+1));
+                    notas_totales[i]=nota;
+                    if(nota>10){
+                        aprobados= aprobados+1;
+                    }else{
+                        desaprobados=desaprobados+1;
+                    }
+                }
+                return "Alumnos aprobados: "+ aprobados + " // Alumnos desaprobados: " + desaprobados;
+
+            }
+        }
+
+        function ej14_DevuelveFocos(cantfocos){
+            let verde=0;
+            let rojo=0;
+            let blanco=0;
+            if(isNaN(cantfocos)){
+                return "Ingresa valores correctos";
+            }else{
+                for(i=0;i<cantfocos;i++){
+                    let color= prompt("Ingrese color del foco " +(i+1) + "-- Verde: V  // Blanco: B // Rojo: R");
+                    
+                    switch(color){
+                        case "V":
+                            verde=verde+1;
+                            break;
+            
+                        case "B":
+                            blanco=blanco+1;
+                            break;
+            
+                        case "R":
+                            rojo=rojo+1;
+                            break;}
+                 }
+                return "Focos verdes: "+ verde + " // Focos blancos: " + blanco + " // Focos rojos: " + rojo;
+            }
+        }
+
+        function ej15_Votacion(añonac){
+           let edadvoto=0;
+           let añoactual=2022;
+            if(isNaN(añonac)){
+                return "Ingresa valores correctos";
+            }else{
+                edadvoto=añoactual-añonac;
+
+                if(edadvoto<18){
+                    return "Ud. aun no puede votar, tiene " +edadvoto + " años.";
+                }else{
+                return "Ud. tiene " +edadvoto + " años. Está obligado a votar.";
+                }
+            }
+        }
